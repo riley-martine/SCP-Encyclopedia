@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SCP Encyclopedia</title>
+
+<meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+<meta content="en" http-equiv="content-language"/>
+
+<style id="internal-style" type="text/css"> @import url(style.css);
+                                     @import url(style2.css);
+                                     @import url(print.css);
+                                 </style>
+
+<style media="print" type="text/css">@import url(print2.css);</style>
+
+</head>
+
+<body class="print-body" id="html-body">
+<div id="toc">
+
+
+</div>
+<div id="articles">
+
+
+</div>
+<div id="license">
+Unless stated otherwise Content of this page is licensed under 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a>
+</div>
+</body>
+</html>
