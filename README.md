@@ -10,7 +10,7 @@ The only dependecy is Python 3. I've included Beautiful Soup (thanks heaps Datas
 so no need to go downloading libraries. Also, if you want to start again, make sure to delete 
 the 'encyclopedia' & 'html_files' directories.
 
-The script as I said, only generates a html files (in 'encyclopdia'). Pop it into your favorite PDF 
+The script, as I said, only generates a html file (in 'encyclopdia'). Pop it into your favorite PDF 
 authoring tool. As long as it supports anchors, you're all gravy.
 
 Finally, this is very Beta. Likely to fall over with little to no notice. Due to internet bandwith
