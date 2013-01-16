@@ -16,6 +16,10 @@ authoring tool. As long as it supports anchors, you're all gravy.
 Finally, this is very Beta. Likely to fall over with little to no notice. Due to internet bandwith
 constraints, I've only tested it with the first 10 SCP's! If you can read this, expect it to screw 
 up on SCP-011! Please submit an issue to Github when it does.
-
+ 
+To make stuff happen:
+--
+python main.py
+--
 
 
