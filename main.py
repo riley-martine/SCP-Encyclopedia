@@ -1,3 +1,6 @@
+import sys
+print(sys.executable)
+
 import createhtml
 import download
 import processing

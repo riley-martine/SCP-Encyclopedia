@@ -1,7 +1,6 @@
 import os
 import glob
 from bs4 import BeautifulSoup
-from bs4 import UnicodeDammit
 
 def abs_paths_to_rel():
     files = glob.glob(os.path.join(os.getcwd(), "html_files", "*.htm"))   
