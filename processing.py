@@ -17,7 +17,7 @@ def abs_paths_to_rel():
         soup.find("div", id="page-title").string.wrap(a_name)
 
         for img_tag in soup.find_all('img'):
-            old_img_src = img_tag['src']
+            old_img_src = img_tag['src']            
             img_tag['src'] = os.path.basename(old_img_src)
             print(img_tag['src'])
 

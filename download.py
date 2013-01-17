@@ -53,11 +53,14 @@ def download_files():
 
         # Give the page info to ImgHandler, so it can find add the images it
         # needs to download
-        
+
         imgp.feed(open(os.path.join("html_files", os.path.basename(current_url)) + ".htm", encoding="utf8").read())
 
         # Download all the urls created by ImgHandler
         for path in imgp.downloads:
-            print("Getting image: " + path)
-            urllib.request.urlretrieve(path, os.path.join("encyclopedia", os.path.basename(path)))
+                if(path.startswith('/local--files')):
+                        path = "http://scp-wiki.wdfiles.com" + path
+                        print("Path was relative to local--files")
+                print("Getting image: " + path)
+                urllib.request.urlretrieve(path, os.path.join("encyclopedia", os.path.basename(path)))
 
