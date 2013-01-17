@@ -67,6 +67,16 @@ def remove_crap():
                 # the text from the span tag, then replace the whole span tag with the text.
             if soup.find("span", class_="number prw54353") != None:
                 soup.find("span", class_="number prw54353").unwrap()
+
+            # Some pages have collapsing text. Let's remove the fancy stuff.
+            div_cbf = soup.find_all("div", class_="collapsible-block-folded")
+            for cbf in div_cbf:
+                cbf.find("a").unwrap()
+
+            div_cbuf = soup.find_all("div", class_="collapsible-block-unfolded")
+            for cbuf in div_cbuf:
+                del cbuf['style']
+                cbuf.find("div", class_="collapsible-block-unfolded-link").decompose()
                 
             write_out = open(file, 'w', encoding="utf8")
             write_out.write(str(soup))
