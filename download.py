@@ -37,9 +37,7 @@ def download_files():
     shutil.copy(os.path.join("modded_files", "style2.css"), "encyclopedia")
     shutil.copy(os.path.join("modded_files", "scp-series-contents.html"), "html_files")
     shutil.copy(os.path.join("modded_files", "scp-series2-contents.html"), "html_files")
-    
-    
-                               
+                    
     for current_scp in range(1, amount_to_get):
         print("-------------")
         print("Starting: " + str(current_scp))

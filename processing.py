@@ -62,7 +62,7 @@ def remove_crap():
 
                 soup.find("span", class_="rateup").decompose()
                 soup.find("span", class_="ratedown").decompose()
-                soup.find("span", class_="cancel").decompose(
+                soup.find("span", class_="cancel").decompose()
                 # There's some weird character popping up next to the rating. We have to extract
                 # the text from the span tag, then replace the whole span tag with the text.
             if soup.find("span", class_="number prw54353") != None:
