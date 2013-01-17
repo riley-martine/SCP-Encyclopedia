@@ -8,7 +8,7 @@ base_url = 'http://www.scp-wiki.net/printer--friendly//scp-'
 current_scp = 0
 
 # The extra 1 to satisfy our loop
-amount_to_get = 10 + 1
+amount_to_get = 1999 + 1
 
 class ImgParser(HTMLParser):
         def __init__(self, *args, **kwargs):
