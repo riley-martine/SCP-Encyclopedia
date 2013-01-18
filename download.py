@@ -61,6 +61,8 @@ def download_files():
                 if(not path.startswith('http://')):
                         path = "http://scp-wiki.wdfiles.com" + path
                         print("Path was relative")
+                if(path.find('?') is not -1):
+                        path = path.split('?')[0]
                 print("Getting image: " + path)
                 urllib.request.urlretrieve(path, os.path.join("encyclopedia", os.path.basename(path)))
 
