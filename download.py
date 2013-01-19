@@ -5,7 +5,7 @@ import os
 import shutil
 
 base_url = 'http://www.scp-wiki.net/printer--friendly//scp-'
-current_scp = 316
+current_scp = 0
 
 # The extra 1 to satisfy our loop
 amount_to_get = 1999 + 1
@@ -58,11 +58,14 @@ def download_files():
 
         # Download all the urls created by ImgHandler
         for path in imgp.downloads:
+
                 if(not path.startswith('http://')):
                         path = "http://scp-wiki.wdfiles.com" + path
-                        print("Path was relative")
                 if(path.find('?') is not -1):
                         path = path.split('?')[0]
+                if(path.find('"') is not -1):
+                        path = path.replace('"', '')
+                        
                 print("Getting image: " + path)
                 urllib.request.urlretrieve(path, os.path.join("encyclopedia", os.path.basename(path)))
 

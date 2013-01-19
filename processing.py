@@ -17,8 +17,11 @@ def abs_paths_to_rel():
         soup.find("div", id="page-title").string.wrap(a_name)
 
         for img_tag in soup.find_all('img'):
-            old_img_src = img_tag['src']            
-            img_tag['src'] = os.path.basename(old_img_src)
+            if(img_tag['src'].find('\"') is not -1):
+                print("Found double-quote")
+                img_tag['src'] = img_tag['src'].replace('\"', '')
+
+            img_tag['src'] = os.path.basename(img_tag['src'])
             print(img_tag['src'])
 
         write_out = open(file, 'w', encoding="utf8")
