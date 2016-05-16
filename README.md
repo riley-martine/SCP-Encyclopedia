@@ -1,5 +1,7 @@
 SCP-Encyclopedia
 ================
+I take no credit for this, only updating bs so it would run. I will attempt to improve it in the future. Below is the original author's readme. 
+
 
 Hey everyone. 
 As the description says, this script will download the Series 1 & 2 SCP articles, 
