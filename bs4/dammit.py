@@ -309,7 +309,7 @@ class EncodingDetector:
         else:
             xml_endpos = 1024
             html_endpos = max(2048, int(len(markup) * 0.05))
-            
+
         declared_encoding = None
         declared_encoding_match = xml_encoding_re.search(markup, endpos=xml_endpos)
         if not declared_encoding_match and is_html:
@@ -837,4 +837,3 @@ class UnicodeDammit:
             # Store the final chunk.
             byte_chunks.append(in_bytes[chunk_start:])
         return b''.join(byte_chunks)
-
