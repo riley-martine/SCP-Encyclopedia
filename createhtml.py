@@ -1,10 +1,12 @@
+"""Turn files into nice html."""
+
 import os
 import glob
 from bs4 import BeautifulSoup
 
 
 def create_full_html():
-
+    """Turn all files into html."""
     # It's a text file so that it doesn't get picked up by glob
     result_soup = BeautifulSoup(open('base.txt', encoding="utf8"))
 
@@ -12,15 +14,21 @@ def create_full_html():
         os.path.join(os.getcwd(), "html_files", "*.htm")))
 
     series1_contents = BeautifulSoup(
-        open(os.path.join("html_files", "scp-series-contents.html"), encoding="utf8"))
+        open(os.path.join(
+            "html_files", "scp-series-contents.html"), encoding="utf8"))
+
     result_soup.find("div", id="toc").append(
         series1_contents.find("div", id="main-content"))
+
     result_soup.find("div", id="toc").append(result_soup.new_tag("br"))
 
     series2_contents = BeautifulSoup(
-        open(os.path.join("html_files", "scp-series2-contents.html"), encoding="utf8"))
+        open(os.path.join(
+            "html_files", "scp-series2-contents.html"), encoding="utf8"))
+
     result_soup.find("div", id="toc").append(
         series2_contents.find("div", id="main-content"))
+
     result_soup.find("div", id="toc").append(result_soup.new_tag("br"))
 
     for file in files:
