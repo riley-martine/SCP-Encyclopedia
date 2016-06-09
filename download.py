@@ -10,7 +10,7 @@ base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
 current_scp = 0
 
 # The extra 1 to satisfy our loop
-amount_to_get = 1999 + 1  # 1999 default
+amount_to_get = 2999 + 1  # 1999 default
 
 
 class ImgParser(HTMLParser):
@@ -56,7 +56,7 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
     shutil.copy(os.path.join("modded_files",
                              "scp-series2-contents.html"), "html_files")
 
-    for current_scp in range(390, amount_to_get):
+    for current_scp in range(0, amount_to_get):
         print("-------------")
         print("Starting: " + str(current_scp))
 
@@ -69,7 +69,8 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
         print("Downloading: " + current_url)
 
         try:
-            page = urllib.request.urlretrieve(current_url, os.path.join("html_files", os.path.basename(current_url)) + ".htm")
+            urllib.request.urlretrieve(current_url, os.path.join(
+                "html_files", os.path.basename(current_url)) + ".htm")
 
             # Give the page info to ImgHandler so it can find add the images it
             # needs to download

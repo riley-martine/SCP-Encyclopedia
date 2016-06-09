@@ -1,4 +1,4 @@
-"""Remove crap from pages and change image location"""
+"""Remove crap from pages, change image location, generate encyclopedia"""
 
 import os
 import glob
