@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/88233032ccae4bb8b7244446e0d8da6b)](https://www.codacy.com/app/***REMOVED***/SCP-Encyclopedia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=riley-martine/SCP-Encyclopedia&amp;utm_campaign=Badge_Grade)
 SCP-Encyclopedia
 ================
 I forked this from the original author, Matthood, whose readme is below. I have so far not added any new features, only fixed existing ones. Namely: gitignore for downloaded files, don't fail on 404, image links to images folder rather than to html_files folder.
@@ -12,6 +13,6 @@ The script, as I said, only generates a html file (in 'encyclopdia'). Pop it int
 
 
 To make stuff happen:
---
+
 python3 main.py
---
+
