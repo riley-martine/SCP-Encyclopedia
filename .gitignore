@@ -1,5 +1,6 @@
 html_files/
 __pycache__/
 *.pyc
+*.swp
 venv/
 encyclopedia/
