@@ -8,14 +8,14 @@ from bs4 import BeautifulSoup
 def create_full_html():
     """Turn all files into html."""
     # It's a text file so that it doesn't get picked up by glob
-    result_soup = BeautifulSoup(open('base.txt', encoding="utf8"))
+    result_soup = BeautifulSoup(open('base.txt', encoding="utf8"), 'html.parser')
 
     files = glob.glob(os.path.join(
         os.path.join(os.getcwd(), "html_files", "*.htm")))
 
     series1_contents = BeautifulSoup(
         open(os.path.join(
-            "html_files", "scp-series-contents.html"), encoding="utf8"))
+            "html_files", "scp-series-contents.html"), encoding="utf8"), 'html.parser')
 
     result_soup.find("div", id="toc").append(
         series1_contents.find("div", id="main-content"))
@@ -24,7 +24,7 @@ def create_full_html():
 
     series2_contents = BeautifulSoup(
         open(os.path.join(
-            "html_files", "scp-series2-contents.html"), encoding="utf8"))
+            "html_files", "scp-series2-contents.html"), encoding="utf8"), 'html.parser')
 
     result_soup.find("div", id="toc").append(
         series2_contents.find("div", id="main-content"))
@@ -33,7 +33,7 @@ def create_full_html():
 
     for file in files:
         print(file)
-        file_soup = BeautifulSoup(open(file, encoding="utf8"))
+        file_soup = BeautifulSoup(open(file, encoding="utf8"), 'html.parser')
 
         result_soup.find("div", id="articles").append(
             file_soup.find("div", id="container"))

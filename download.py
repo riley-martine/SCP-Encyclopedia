@@ -10,7 +10,7 @@ base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
 current_scp = 0
 
 # The extra 1 to satisfy our loop
-amount_to_get = 2999 + 1  # 1999 default
+amount_to_get = 10#2999 + 1  # 1999 default
 
 
 class ImgParser(HTMLParser):
