@@ -12,7 +12,7 @@ def abs_paths_to_rel():
     for file in files:
         print(file)
 
-        soup = BeautifulSoup(open(file, encoding="utf8"))
+        soup = BeautifulSoup(open(file, encoding="utf8"), 'html.parser')
 
         # Make the title an anchor, for the table of contents
         title = soup.find("div", id="page-title").string
@@ -33,7 +33,7 @@ def abs_paths_to_rel():
         write_out.write(str(soup))
 
     series1_contents = BeautifulSoup(open(os.path.join(
-        "html_files", "scp-series-contents.html"), encoding="utf8"))
+        "html_files", "scp-series-contents.html"), encoding="utf8"), 'html.parser')
 
     lis = series1_contents.find_all("li")
     for li in lis:
@@ -42,7 +42,7 @@ def abs_paths_to_rel():
         a['href'] = a['href'].upper()
 
     series2_contents = BeautifulSoup(open(os.path.join(
-        "html_files", "scp-series2-contents.html"), encoding="utf8"))
+        "html_files", "scp-series2-contents.html"), encoding="utf8"), 'html.parser')
 
     lis = series1_contents.find_all("li")
     for li in lis:
@@ -63,17 +63,19 @@ def remove_crap():
 
     files = glob.glob(os.path.join(os.getcwd(), "html_files", "*.htm"))
     for file in files:
-        soup = BeautifulSoup(open(file, encoding="utf8"))
+        soup = BeautifulSoup(open(file, encoding="utf8"), 'html.parser')
 
         # Decompose removes a tag, and everything inside it.
-        soup.find("div", id="print-options").decompose()
-        soup.find("div", id="print-head").decompose()
-        soup.find("div", id="license-area").decompose()
-        soup.find("div", id="page-info").decompose()
-        soup.find("div", id="dummy-ondomready-block").decompose()
+        find_div = lambda x: soup.find("div", id=x)
+        safe_decompose = lambda x:  find_div(x) and find_div(x).decompose()
+        
+        safe_decompose("print-options")
+        safe_decompose("print-head")
+        safe_decompose("license-area")
+        safe_decompose("page-info")
+        safe_decompose("dummy-ondomready-block")
         # Some articles don't have ratings
         if soup.find("span", class_="rateup") is not None:
-
             soup.find("span", class_="rateup").decompose()
             soup.find("span", class_="ratedown").decompose()
             soup.find("span", class_="cancel").decompose()
