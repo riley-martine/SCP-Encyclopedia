@@ -6,4 +6,5 @@
 - - nametbd: directory including file, img directory, css directory
 - - manyfile: many files, one for each SCP. Ideal: have "next" link.
 - Handle SCP-001
+- Option for less bare pages
 - Error log
