@@ -4,13 +4,14 @@ import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 import os
+from socket import gaierror
 import shutil
 
 base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
 current_scp = 0
 
 # The extra 1 to satisfy our loop
-amount_to_get = 10#2999 + 1  # 1999 default
+amount_to_get = 2999 + 1  # 1999 default
 
 
 class ImgParser(HTMLParser):
@@ -92,6 +93,10 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
                 urllib.request.urlretrieve(path, os.path.join(
                     "encyclopedia", os.path.basename(path)))
 
+        except gaierror:
+            print(current_url + "\n not found: gaierror")
+            pass
+        
         except urllib.error.HTTPError:
             print(current_url + "\n not found")
             pass
