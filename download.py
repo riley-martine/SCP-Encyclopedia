@@ -8,10 +8,10 @@ from socket import gaierror
 import shutil
 
 base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
-current_scp = 0
+starting_scp = 0
 
 # The extra 1 to satisfy our loop
-amount_to_get = 2999 + 1  # 1999 default
+amount_to_get = 2999 + 1  # 2999 default
 
 
 class ImgParser(HTMLParser):
@@ -57,7 +57,7 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
     shutil.copy(os.path.join("modded_files",
                              "scp-series2-contents.html"), "html_files")
 
-    for current_scp in range(2582, amount_to_get):
+    for current_scp in range(starting_scp, amount_to_get):
         print("-------------")
         print("Starting: " + str(current_scp))
 
