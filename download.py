@@ -57,7 +57,7 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
     shutil.copy(os.path.join("modded_files",
                              "scp-series2-contents.html"), "html_files")
 
-    for current_scp in range(0, amount_to_get):
+    for current_scp in range(2582, amount_to_get):
         print("-------------")
         print("Starting: " + str(current_scp))
 
@@ -82,7 +82,7 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
             # Download all the urls created by ImgHandler
             for path in imgp.downloads:
 
-                if(not path.startswith('http://')):
+                if(not path.startswith('http')): # No :// allows detection of https
                     path = "http://scp-wiki.wdfiles.com" + path
                 if(path.find('?') is not -1):
                     path = path.split('?')[0]
