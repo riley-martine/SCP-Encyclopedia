@@ -2,5 +2,6 @@ html_files/
 __pycache__/
 *.pyc
 *.swp
+error.log
 venv/
 encyclopedia/

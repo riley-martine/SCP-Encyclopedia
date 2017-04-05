@@ -8,3 +8,4 @@
 - Handle SCP-001
 - Option for less bare pages
 - Error log
+- Don't redownload files unless asked to

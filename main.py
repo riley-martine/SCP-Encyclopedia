@@ -4,6 +4,10 @@ import sys
 import createhtml
 import download
 import processing
+import logging
+
+log_location = 'error.log'
+logging.basicConfig(filename=log_location, filemode='w', level=logging.DEBUG)
 
 print(sys.executable)
 

@@ -4,8 +4,8 @@ import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 import os
-from socket import gaierror
 import shutil
+import logging
 
 base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
 starting_scp = 0
@@ -38,18 +38,33 @@ def download_files():
         os.makedirs("encyclopedia")
 
     print("Downloading CSS")
-    urllib.request.urlretrieve(
-        "http://static.wikidot.com/v--16f88041ce8d/common--\
+    try:
+        urllib.request.urlretrieve(
+            "http://static.wikidot.com/v--16f88041ce8d/common--\
 theme/base/css/style.css", os.path.join("encyclopedia", "style.css"))
 
-    urllib.request.urlretrieve(
-        "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--\
+        urllib.request.urlretrieve(
+            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--\
 theme/base/css/print.css", os.path.join("encyclopedia", "print.css"))
 
-    urllib.request.urlretrieve(
-        "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--\
+        urllib.request.urlretrieve(
+            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--\
 theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
 
+    # This happens if you have DNS issues, like me. :(
+    except urllib.error.URLError as e:
+        print(e)
+        print("CSS Files" + " couldn't be resolved")
+        logging.warning(e)
+        logging.warning("CSS Files" + " couldn't be resolved")
+        pass
+
+
+   # except urllib.error.HTTPError:
+   #     print("CSS Files" + " couldn't be found")
+   #     logging.warning("CSS Files" + " couldn't be found")
+   #     pass
+    
     # A few files come pre-modified, lets copy them to the necessary dirs.
     shutil.copy(os.path.join("modded_files", "style2.css"), "encyclopedia")
     shutil.copy(os.path.join("modded_files",
@@ -93,10 +108,16 @@ theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
                 urllib.request.urlretrieve(path, os.path.join(
                     "encyclopedia", os.path.basename(path)))
 
-        except gaierror:
-            print(current_url + "\n not found: gaierror")
+        # This happens if you have DNS issues, like me. :(
+        except urllib.error.URLError:
+            print(current_url + " cannot be resolved")
+            logging.warning(current_url + " cannot be resolved")
+            pass
+
+
+        except urllib.error.HTTPError:
+            print(current_url + " not found")
+            logging.warning(current_url + " not found")
             pass
         
-        except urllib.error.HTTPError:
-            print(current_url + "\n not found")
-            pass
+
