@@ -10,3 +10,4 @@ Todo List
 - Test Other SCPs for completeness
 - Option for less bare pages
 - Don't redownload files unless asked to
+- Make into python package?
