@@ -8,7 +8,7 @@ import shutil
 import logging
 
 base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
-starting_scp = 0
+starting_scp = 2998
 
 # The extra 1 to satisfy our loop
 amount_to_get = 2999 + 1  # 2999 default
@@ -40,16 +40,15 @@ def download_files():
     print("Downloading CSS")
     try:
         urllib.request.urlretrieve(
-            "http://static.wikidot.com/v--16f88041ce8d/common--\
-theme/base/css/style.css", os.path.join("encyclopedia", "style.css"))
+            "http://static.wikidot.com/v--16f88041ce8d/common--theme/base/css/style.css", os.path.join("encyclopedia", "style.css"))
 
         urllib.request.urlretrieve(
-            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--\
-theme/base/css/print.css", os.path.join("encyclopedia", "print.css"))
+            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print.css", os.path.join("encyclopedia", "print.css"))
 
         urllib.request.urlretrieve(
-            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--\
-theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
+            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
+        
+        print("Downloaded CSS")
 
     # This happens if you have DNS issues, like me. :(
     except urllib.error.URLError as e:
