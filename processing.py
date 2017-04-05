@@ -10,7 +10,7 @@ def abs_paths_to_rel():
     files = glob.glob(os.path.join(os.getcwd(), "html_files", "*.htm"))
 
     for file in files:
-        print(file)
+        print("Fixing paths in " + file)
 
         soup = BeautifulSoup(open(file, encoding="utf8"), 'html.parser')
 
@@ -63,6 +63,7 @@ def remove_crap():
 
     files = glob.glob(os.path.join(os.getcwd(), "html_files", "*.htm"))
     for file in files:
+        print("Cleaning up " + file)
         soup = BeautifulSoup(open(file, encoding="utf8"), 'html.parser')
 
         # Decompose removes a tag, and everything inside it.
@@ -88,13 +89,15 @@ def remove_crap():
         # Some pages have collapsing text. Let's remove the fancy stuff.
         div_cbf = soup.find_all("div", class_="collapsible-block-folded")
         for cbf in div_cbf:
-            cbf.find("a").unwrap()
+            links = cbf.find("a")
+            links and links.unwrap()
 
         div_cbuf = soup.find_all("div", class_="collapsible-block-unfolded")
         for cbuf in div_cbuf:
             del cbuf['style']
-            cbuf.find(
-                "div", class_="collapsible-block-unfolded-link").decompose()
+            div = cbuf.find(
+                "div", class_="collapsible-block-unfolded-link")
+            div and div.decompose()
 
         write_out = open(file, 'w', encoding="utf8")
         write_out.write(str(soup))
