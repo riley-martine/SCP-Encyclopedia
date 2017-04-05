@@ -90,14 +90,16 @@ def remove_crap():
         div_cbf = soup.find_all("div", class_="collapsible-block-folded")
         for cbf in div_cbf:
             links = cbf.find("a")
-            links and links.unwrap()
+            if links:
+                links.unwrap()
 
         div_cbuf = soup.find_all("div", class_="collapsible-block-unfolded")
         for cbuf in div_cbuf:
             del cbuf['style']
             div = cbuf.find(
                 "div", class_="collapsible-block-unfolded-link")
-            div and div.decompose()
+            if div:
+                div.decompose()
 
         write_out = open(file, 'w', encoding="utf8")
         write_out.write(str(soup))
