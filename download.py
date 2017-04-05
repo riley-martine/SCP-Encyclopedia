@@ -39,14 +39,11 @@ def download_files():
 
     print("Downloading CSS")
     try:
-        urllib.request.urlretrieve(
-            "http://static.wikidot.com/v--16f88041ce8d/common--theme/base/css/style.css", os.path.join("encyclopedia", "style.css"))
+        urllib.request.urlretrieve("http://static.wikidot.com/v--16f88041ce8d/common--theme/base/css/style.css", os.path.join("encyclopedia", "style.css"))
 
-        urllib.request.urlretrieve(
-            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print.css", os.path.join("encyclopedia", "print.css"))
+        urllib.request.urlretrieve("http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print.css", os.path.join("encyclopedia", "print.css"))
 
-        urllib.request.urlretrieve(
-            "http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
+        urllib.request.urlretrieve("http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
         
         print("Downloaded CSS")
 
@@ -107,11 +104,12 @@ def download_files():
                 urllib.request.urlretrieve(path, os.path.join(
                     "encyclopedia", os.path.basename(path)))
 
+        # This is not an error; some SCPs are not defined.
         except urllib.error.HTTPError as e:
             print(e)
             print(current_url + " could not be found")
-            logging.warning(e)
-            logging.warning(current_url + " could not be found")
+#            logging.warning(e)
+#            logging.warning(current_url + " could not be found")
         
         # This happens if you have DNS issues, like me. :(
         except urllib.error.URLError as e:

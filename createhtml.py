@@ -32,7 +32,7 @@ def create_full_html():
     result_soup.find("div", id="toc").append(result_soup.new_tag("br"))
 
     for file in files:
-        print(file)
+        print("Adding " + file)
         file_soup = BeautifulSoup(open(file, encoding="utf8"), 'html.parser')
 
         result_soup.find("div", id="articles").append(
@@ -43,3 +43,4 @@ def create_full_html():
     f = open(os.path.join("encyclopedia", "SCP Encyclopedia.htm"),
              'w', encoding="utf8")
     f.write(result_soup.prettify())
+    print("Created Encyclopedia. Location: encyclopedia/SCP Encyclopedia.htm")
