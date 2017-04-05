@@ -8,7 +8,7 @@ import shutil
 import logging
 
 base_url = 'http://www.scp-wiki.net/printer--friendly/scp-'  # //
-starting_scp = 2998
+starting_scp = 0
 
 # The extra 1 to satisfy our loop
 amount_to_get = 2999 + 1  # 2999 default
@@ -50,19 +50,19 @@ def download_files():
         
         print("Downloaded CSS")
 
+    except urllib.error.HTTPError as e:
+        print(e)
+        print("CSS Files" + " could not  be found")
+        logging.warning(e)
+        logging.warning("CSS Files" + " could not be found")
+    
     # This happens if you have DNS issues, like me. :(
     except urllib.error.URLError as e:
         print(e)
-        print("CSS Files" + " couldn't be resolved")
+        print("CSS Files" + " could not be resolved")
         logging.warning(e)
-        logging.warning("CSS Files" + " couldn't be resolved")
-        pass
+        logging.warning("CSS Files" + " could not  be resolved")
 
-
-   # except urllib.error.HTTPError:
-   #     print("CSS Files" + " couldn't be found")
-   #     logging.warning("CSS Files" + " couldn't be found")
-   #     pass
     
     # A few files come pre-modified, lets copy them to the necessary dirs.
     shutil.copy(os.path.join("modded_files", "style2.css"), "encyclopedia")
@@ -107,16 +107,16 @@ def download_files():
                 urllib.request.urlretrieve(path, os.path.join(
                     "encyclopedia", os.path.basename(path)))
 
-        # This happens if you have DNS issues, like me. :(
-        except urllib.error.URLError:
-            print(current_url + " cannot be resolved")
-            logging.warning(current_url + " cannot be resolved")
-            pass
-
-
-        except urllib.error.HTTPError:
-            print(current_url + " not found")
-            logging.warning(current_url + " not found")
-            pass
+        except urllib.error.HTTPError as e:
+            print(e)
+            print(current_url + " could not be found")
+            logging.warning(e)
+            logging.warning(current_url + " could not be found")
         
+        # This happens if you have DNS issues, like me. :(
+        except urllib.error.URLError as e:
+            print(e)
+            print(current_url + " could not  be resolved")
+            logging.warning(e)
+            logging.warning(current_url + " could not  be resolved")
 
