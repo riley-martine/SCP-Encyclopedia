@@ -9,5 +9,6 @@ Todo List
 - Handle SCP-001
 - Test Other SCPs for completeness
 - Option for less bare pages
+- See what happens if two images have the same name
 - Don't redownload files unless asked to
 - Make into python package?
