@@ -69,7 +69,7 @@ def remove_crap():
         # Decompose removes a tag, and everything inside it.
         find_div = lambda x: soup.find("div", id=x)
         safe_decompose = lambda x:  find_div(x) and find_div(x).decompose()
-        
+
         safe_decompose("print-options")
         safe_decompose("print-head")
         safe_decompose("license-area")
