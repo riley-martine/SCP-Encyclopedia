@@ -10,14 +10,17 @@ The script  generates an html file (in 'encyclopdia'). Pop it into your favorite
 
 
 To make stuff happen:
+- git clone the repo
 
--pip3 install -r requirements.txt
+- Make sure you have python and bs4 installed
 
--python3 main.py
+- Edit the SCP-Encyclopedia/download.py to reflect the number of articles you want
 
--check the error.log
+- python3 SCP-Encyclopedia/main.py
 
--Generated file is encyclopedia/SCP Encyclopedia.htm
+- check the error.log
+
+- Generated file is encyclopedia/SCP Encyclopedia.htm
 
 # TODO
 
