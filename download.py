@@ -44,7 +44,7 @@ def download_files():
         urllib.request.urlretrieve("http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print.css", os.path.join("encyclopedia", "print.css"))
 
         urllib.request.urlretrieve("http://d3g0gp89917ko0.cloudfront.net/v--16f88041ce8d/common--theme/base/css/print2.css", os.path.join("encyclopedia", "print2.css"))
-     
+
         print("Downloaded CSS")
 
     except urllib.error.HTTPError as e:
