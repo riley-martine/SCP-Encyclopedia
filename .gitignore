@@ -4,4 +4,6 @@ __pycache__/
 *.swp
 error.log
 venv/
+/dist/
+/*.egg-info
 encyclopedia/
